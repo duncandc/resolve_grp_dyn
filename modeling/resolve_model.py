@@ -25,10 +25,14 @@ def main():
     #load halo catalogue
     start = time.time()
     from halotools import sim_manager
+    halocat = sim_manager.CachedHaloCatalog()
+    #use custom processed Bolshoi halo catalogue
+    """
     halocat = sim_manager.CachedHaloCatalog(simname = 'Bolshoi_250',
                                             redshift=0.0,
                                             version_name='1.0',
                                             halo_finder='Rockstar')
+    """
     halo_table = halocat.halo_table
     print("time to load halo catalogue: ", time.time()-start)
     
