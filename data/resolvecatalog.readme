@@ -1,0 +1,905 @@
+Description of files used to create resolvecatalog.dat (variable names
+are mapped to actual files inside makeresolvecatalog.pro)
+
+Name				Description
+****************************************************
+HIfile				Contains HI info
+morphfile			Morphological classifications
+fallmstarsinputfile             Stellar mass input magnitudesfile for fall (includes coordinates, magnitudes, errors, extinctions, and recession velocities)
+fallphotparamsfile              Additional photometric properties of fall galaxies based on coadd data: aperture mags and radii, b/a and pa, color gradients and surface brightness
+fallmstarsfilea			Stellar masses with uncertainties for fall using old model set
+fallmstarsfileb			Stellar masses with uncertainties for fall using new model set
+fallkcorrfilea			K-corrections and smooth rest magnitudes for fall using old model set
+fallkcorrfileb			K-corrections and smooth rest magnitudes for fall using new model set
+fallgroupmassfile 		Galaxy group info for fall
+allsmoothdensityfile		Smooth density measurements for RESOLVE galaxies
+fallgeminiinfofile              info on surface brightness within IFU aperture for gemini proposal and observation preparation
+
+fallsinglemstarsinputfile       Stellar mass input magnitudesfile for fall (includes coordinates, magnitudes, errors, extinctions, and recession velocities)
+fallsinglephotparamsfile        Additional photometric properties of fall galaxies based on single depth data: aperture mags and radii, b/a and pa, color gradients and surface brightness
+fallsinglemstarsfilea		Stellar masses with uncertainties for fall using old model set
+fallsinglemstarsfileb		Stellar masses with uncertainties for fall using new model set
+fallsinglekcorrfilea		K-corrections and smooth rest magnitudes for fall using old model set
+fallsinglekcorrfileb		K-corrections and smooth rest magnitudes for fall using new model set
+
+neighborsfile			Contains nearest RESOLVE neighbors in 2-D and 3-D
+
+springmstarsinputfile		Stellar mass input file for spring (includes coordinates, magnitudes, errors, extinctions, and recession velocities)
+springmstarsfilea		Stellar masses with uncertainties for spring using old model set
+springmstarsfileb		Stellar masses with uncertainties for spring using new model set
+springkcorrfilea		K-corrections and smooth rest magnitudes for spring using old model set
+springkcorrfileb		K-corrections and smooth rest magnitudes for spring using new model set
+springphotparamsfile             Additional photometric properties of spring galaxies: aperture mags and radii, b/a and pa, color gradients and surface brightness
+springgroupmassfile		Galaxy group info for spring
+
+specobsfile                     File with Dates/setups observed on SOAR
+specobsfile_salt                File with Dates/setups observed on SALT
+vorfile				File with voronoi densities and volumes
+
+dubczflag                        marks galaxies that have highly questionable redshifts that place them in the volume (not included in inobssample)
+
+Description of variables in resolvecatalog.dat
+
+Name	        Unit		 Description
+*************************************************
+absmagr	        mag		 SDSS r-band absolute magnitude corrected for foreground extinction
+asymHa				 percent asymmetry in the optical rotation curve
+autoconfused                     marked as confused before inspection
+autoconufused2			 marked as confused before inspection larger search radius
+bar				 String indicating whether the galaxy has a bar
+blue                             Index indicating observed in blue setup
+bluedate			 String with blue observation dates
+bluefrontend			 String with blue frontends used for each date
+bluenote			 String with note from blue observation 
+blobid                           1/0 flag id'd in blob by Dave
+broad                            Index indicating observed in broad setup
+broaddate			 String with broad observation dates
+broadfrontend			 String with broad frontends used for each date
+broadnote			 String with note from broad observation 
+b_a			         minor-to-major axis ratio outer LSB disk
+b_ainnerdisk		         minor-to-major axis ratio at r = 24.5 (sb)
+b_aphotforkin    	         minor-to-major axis ratio HSB disk
+central				 Flag denoting if a galaxy defines the center	
+				 of its dark matter halo (current group 
+				 finding, ll=0.07 & 1.1)
+centralold                       Old flag denoting if a galaxy defines the 
+				 center of its dark matter halo (old group 
+				 finding, ll=0.14 & 0.75)
+centralout                       Flag saying whether central galaxy is outside 
+				 RESOLVE footprint, applies to spring which    
+				 uses ECO for group finding  (current group 
+				 finding, ll=0.07 & 1.1)
+confused		         21cm observation confusion flag -- looks for 
+				 companions within 1.5 beam radii and assumes 
+				 all objects have W50 = 100 km/s
+confused2			 Same as above, except flags objects with 
+				 companions within 2 beam radii and assumes 
+				 all galaxies have W50 = 200 km/s
+czblue           km/s            redshift from ppxf measurement of blue 
+				 data(-999 if no data)
+czbr             km/s            redshift from ppxf measurement of broad 
+				 data(-999 if data exist  sigma < 150 km/s)
+czsusflag                        marks those galaxies with suspect cz 
+				 measurements (only one cz source and 
+				 czerr > 70km/s or unknown)
+czsussrc                         survey from where the suspect cz measurement 
+				 came fom (SDSS DR7, SDSS DR8, GAMA, 2dF, 6dF, 
+				 ALFALFA, or RESOLVE)
+dec	        degrees	 	 Declination
+decinimcent     degrees	 	 Declination from Katie's photometry
+deextrestgmag      mag           de-extincted g mag from new model set
+deextresthmag      mag           de-extincted h mag from new model set
+deextrestimag      mag           de-extincted i mag from new model set
+deextrestjmag      mag           de-extincted j mag from new model set
+deextrestkmag      mag           de-extincted k mag from new model set
+deextrestnuvmag    mag           de-extincted nuv mag from "red" model set
+deextrestredgmag   mag           de-extincted g mag from "red" model set
+deextrestredhmag   mag           de-extincted h mag from "red" model set
+deextrestredimag   mag           de-extincted i mag from "red" model set
+deextrestredjmag   mag           de-extincted j mag from "red" model set
+deextrestredkmag   mag           de-extincted k mag from "red" model set
+deextrestrednuvmag mag           de-extincted nuv mag from "red" model set
+deextrestredmag    mag           de-extincted r mag from "red" model set
+deextrestreduhmag  mag           de-extincted UKIDSS H mag from "red" model 
+		   		 set (should be same as for 2MASS)
+deextrestredukmag  mag           de-extincted UKIDSS  K mag from "red" model 
+		   		 set (should be same as for 2MASS)
+deextrestredumag   mag           de-extincted u mag from "red" model set
+deextrestreduvotm2mag   mag      de-extincted uvotm2 mag from "red" model set
+deextrestreduymag  mag           de-extincted Y mag from "red" model set
+deextrestredzmag   mag           de-extincted z mag from "red" model set
+deextrestrmag      mag           de-extincted r mag from new model set
+deextrestuhmag     mag           de-extincted UKIDSS H mag from new model set 
+		   		 (should be same as for 2MASS)
+deextrestukmag     mag           de-extincted UKIDSS  K mag from new model set 
+		   		 (should be same as for 2MASS)
+deextrestumag      mag           de-extincted u mag from new model set
+deextrestuvotm2mag mag           de-extincted uvotm2 mag from new model set
+deextrestuymag     mag           de-extincted Y mag from new model set
+deextrestzmag      mag           de-extincted z mag from new model set
+density	    	   	         Smoothed environmental density (1 Mpc/h scale, 
+				 =-999. when <2 smoothing lengths from catalog 
+				 volume edges)	
+dgr	    		 	 SDSS g-r blue-centeredness	 
+dgrmcorr		 	 SDSS g-r blue-centeredness corrected for 
+				 stellar mass dependence (calibration  probably 
+				 out of date)
+dubczflag                        1/0 flag marks galaxies that have highly 
+				 questionable redshifts that place them in the 
+				 volume (not included in inobssample)
+dug		   mag		 SDSS u-g blue-centeredness
+dugmcorr 	   mag		 SDSS u-g blue-centeredness corrected for	
+				 stellar mass dependence (calibration probably 
+				 out of date)
+duplicatename                    name of duplicate galaxy in catalog (if exists)
+dv		    km/s	 Resolution of HI spectrum used to calculate 
+		    		 parameters
+eczblue             km/s         error on redshift measurement from ppxf on 
+		    		 blue data (-999 if no data exist) 
+eczbr               km/s         error on redshift measurement from ppxf on 
+		    		 broad data (-999 if data exist but 
+				 sigma < 150 km/s)
+edgeonflag		 	 Flag indicating a galaxy is edge-on
+egmag	            mag		 SDSS g-band magnitude error	
+ehiasym				 Statistical uncertainty in HI flux asymmetry
+				 Includes a contribution from instrumental 
+				 noise and the uncertainty on the systemic 
+				 velocity of the HI profile
+ehmag	            mag		 2MASS H-band magnitude
+eimag	            mag		 SDSS i-band magnitude error
+ejmag	            mag		 2MASS J-band magnitude	
+ekmag	            mag		 2MASS K-band magnitude
+emhi	            Msun	 	 HI mass uncertainty
+emhicorr_rand       Msun	 HI mass uncertainty for de-confused objects 
+		    		 (random)
+emhicorr_sys        Msun	 HI mass uncertainty for de-confused objects 
+		    		 (systematic)
+enuvmag	            mag		 GALEX NUV-band magnitude error
+ermag	       	    mag		 SDSS r-band magnitude error
+esigmablue     	   km/s          error on sigma measurement from ppxf on blue 
+	       			 data (-999 no data)
+esigmabr       	   km/s          error on sigma measurement from ppxf on broad 
+	       			 data (-999 if data exist but sigma < 150 km/s)
+eukidsshmag	    mag		 error on UKIDSS H band
+eukidsskmag    	    mag		 error on UKIDSS K band
+eukidssymag    	    mag		 error on UKIDSS Y band
+eumag	            mag		 SDSS u-band magnitude error
+euvotm2mag	    mag		 Swift uvotm2-band magnitude error
+ew50		    km/s 	 Error on W50		
+extinctiong         mag		 SDSS g-band foreground extinction
+extinctionh         mag		 2MASS H-band foreground extinction
+extinctioni         mag		 SDSS i-band foreground extinction
+extinctionj         mag		 2MASS J-band foreground extinction
+extinctionk         mag		 2MASS K-band foreground extinction
+extinctionnuv       mag          GALEX NUV-band foreground extinction that 
+		    		 has already been applied to NUV magnitude
+extinctionr         mag		 SDSS r-band foreground extinction
+extinctionu         mag  	 SDSS u-band foreground extinction
+extinctionuvotm2    mag  	 Swift uvotm2-band foreground extinction
+extinctiony         mag		 UKIDSS Y-band foreground extinction
+extinctionz         mag		 SDSS z-band foreground extinction
+ezmag	            mag	 	 SDSS z-band magnitude error
+filid                            1/0 flag id'd in filament by Dave
+flyby				 1/0 flag indicating that galaxy is possible flyby (see note titled "flyby IDs" below
+fpdfeinc            deg          error in inclination measurement from FP
+fpdfevcirc          km/s         error in Vcirc measurement from FP
+fpdfevsys           km/s         error in cz redshift from FP
+fpdfinc             deg          inclination measurement from FP
+fpdfvcirc           km/s         Vcirc measurement from FP
+vpdfvsys            km/s         cz redshift from FP
+fvsb_a			         minor-to-major axis ratio fall single depth    
+fvsermag            mag	 	 error on SDSS total r band magnitude fall 
+				 single depth
+fvsmstars           Msun	 Stellar mass new models
+fvsmstarsold        Msun	 Stellar mass old models
+fvsmur90       mag/arcsec^2      r-band surface brightness within r-band 90% 
+	       			 light radius (observed)
+fvspa                            pa (N through E) fall single depth 
+fvsradr24p5          arcsec      radius fall at r band 24.5 isophote 
+		     		 single depth
+fvsradr50p           arcsec      50% r band light radius fall single depth
+fvsradr90p           arcsec      90% r band light radius fall single depth
+fvsrmag	               mag	 SDSS total r band magnitude fall single depth
+fvssmoothrestgmag      mag	 SDSS g-band magnitude derived from stellar 
+		       		 mass fit new models	 
+fvssmoothrestgmagold   mag	 SDSS g-band magnitude derived from stellar 
+		       		 mass fit old models	 
+fvssmoothresthmag      mag	 2MASS H-band magnitude derived from stellar 
+		       		 mass fit new models	  
+fvssmoothresthmagold   mag	 2MASS H-band magnitude derived from stellar 
+		       		 mass fit old models	  
+fvssmoothrestimag      mag	 SDSS i-band magnitude derived from stellar 
+		       		 mass fit new models	 	 
+fvssmoothrestimagold   mag	 SDSS i-band magnitude derived from stellar 
+		       		 mass fit old models	  
+fvssmoothrestjmag      mag	 2MASS J-band magnitude derived from stellar 
+		       		 mass fit new models	 	 
+fvssmoothrestjmagold   mag	 2MASS J-band magnitude derived from 
+		       		 stellar mass fit  old models	 
+fvssmoothrestkmag      mag	 2MASS K-band magnitude derived from stellar 
+		       		 mass fit new models	 	 
+fvssmoothrestkmagold  mag	 2MASS K-band magnitude derived from stellar 
+		      		 mass fit old models	 
+fvssmoothrestnuvmag    mag       GALEX NUV-band magnitude derived from stellar 
+		       		 mass fit new models	 	 
+fvssmoothrestnuvmagold mag       GALEX NUV-band magnitude derived from stellar 
+		       		 mass fit old models	 	 
+fvssmoothrestrmag      mag	 SDSS r-band magnitude derived from stellar 
+		       		 mass fit new models	 
+fvssmoothrestrmagold   mag	 SDSS r-band magnitude derived from stellar 
+		       		 mass fit old models	 
+fvssmoothrestumag      mag	 SDSS u-band magnitude derived from stellar 
+		       		 mass fit new models	 
+fvssmoothrestumagold   mag	 SDSS u-band magnitude derived from stellar 
+		       		 mass fit old models	 
+fvssmoothrestzmag      mag	 SDSS z-band magnitude derived from stellar
+		       		 mass fit new models	 
+fvssmoothrestzmagold   mag	 SDSS z-band magnitude derived from stellar 
+		      		 mass fit old models	 
+F_HA_BROAD           1e-17 erg/s/cm^2  broad setup Halpha flux
+F_HA_ERR_BROAD       1e-17 erg/s/cm^2  broad setup Halpha flux err
+F_HA_RED             1e-17 erg/s/cm^2  red setup Halpha flux
+F_HA_ERR_REd	     1e-17 erg/s/cm^2  red setup Halpha flux err
+F_HB_BROAD     	     1e-17 erg/s/cm^2  broad setup Hbeta flux	    
+F_HB_ERR_BROAD       1e-17 erg/s/cm^2  broad setup Hbeta flux err	    	  
+F_NII_5755_BROAD     1e-17 erg/s/cm^2  broad setup NII 5755AA flux    	   
+F_NII_5755_ERR_BROAD 1e-17 erg/s/cm^2  broad setup NII 5755AA flux err
+F_NII_5755_RED       1e-17 erg/s/cm^2  red setup NII 5755AA flux    	   
+F_NII_5755_ERR_RED   1e-17 erg/s/cm^2  red setup NII 5755AA flux err
+F_NII_6548_BROAD     1e-17 erg/s/cm^2  broad setup NII 6548AA flux    
+F_NII_6548_ERR_BROAD 1e-17 erg/s/cm^2  broad setup NII 6548AA flux err
+F_NII_6548_RED       1e-17 erg/s/cm^2  red setup NII 6548AA flux    
+F_NII_6548_ERR_RED   1e-17 erg/s/cm^2  red setup NII 6548AA flux err
+F_NII_6586_BROAD     1e-17 erg/s/cm^2  broad setup NII 6586AA flux    
+F_NII_6586_ERR_BROAD 1e-17 erg/s/cm^2  broad setup NII 6586AA flux err
+F_NII_6586_RED       1e-17 erg/s/cm^2  red setup NII 6586AA flux    
+F_NII_6586_ERR_RED   1e-17 erg/s/cm^2  red setup NII 6586AA flux err
+F_OIII_4363_BROAD    1e-17 erg/s/cm^2  broad setup OIII 4363AA flux	
+F_OIII_4363_ERR_BROAD 1e-17 erg/s/cm^2  broad setup OIII 4363AA flux err
+F_OIII_4960_BROAD    1e-17 erg/s/cm^2  broad setup OIII 4960AA flux	
+F_OIII_4960_ERR_BROAD 1e-17 erg/s/cm^2  broad setup OIII 4960AA flux err
+F_OIII_5007_BROAD    1e-17 erg/s/cm^2  broad setup OIII 5007AA flux	
+F_OIII_5007_ERR_BROAD 1e-17 erg/s/cm^2  broad setup OIII 5007AA flux err
+g50	           mag		 SDSS g-band magnitude within the 50% r-band light radius
+g90	           mag		 SDSS g-band magnitude within the 90% r-band light radius
+gemblue                          done/to be done with Gemini in blue setup 
+gemdone                          observed by Gemini
+gemqueue                         in Gemini queue
+gemred                           done/to be done with Gemini in red setup 
+gkcorr		   mag		 SDSS g-band K-correction new models	
+gkcorrold	   mag		 SDSS g-band K-correction old models	
+gkcorrred	   mag		 SDSS g-band K-correction "red" models	
+gmag	           mag		 SDSS g-band magnitude
+goodresolve                      1/0 flag for kitchen sink catalog saying 
+				 whether gal is good (could be 0 for being	
+				 duplicate or having a cz way outside of vol) 
+groupassocflag                   Flag indicating that galaxy was associated 
+				 with a group after performing group finding 
+				 with mag-limited catalog 
+                                 (matches within each group's Rvir and the 
+				 larger of 3x its estimated velocity dispersion 
+				 or the line-of-sight linking length; 
+				 if a galaxy matches to 0 groups, it's 
+				 considered to lie in an N=1 halo and assigned 
+				 a halo mass according to the usual 
+				 group luminosity -> Mhalo relation)  
+				 (current group finding, ll=0.07 & 1.1)
+groupassocflagold                Old flag indicating that galaxy was associated 
+				 with a group after performing group finding 
+				 with mag-limited catalog (matches within each 
+				 group's Rvir and 3x its estimated velocity 
+				 dispersion; if a galaxy matches to 0 groups, 
+				 it's considered to lie in an N=1 halo and 
+				 assigned a halo mass according to the usual 
+				 group luminosity -> Mhalo relation)   (old 
+				 group finding, ll=0.14 & 0.75)
+groupcenter		 	 Flag indicating that galaxy is the most 
+				 massive galaxy in its group (current group 
+				 finding, ll=0.07 & 1.1)
+groupcenterold		 	 Old flag indicating that galaxy is the most 
+				 massive galaxy in its group (old group 
+				 finding, ll=0.14 & 0.75)
+groupcz		  km/s    	 Redshift of group center or vlg if n=1 group (current group finding, ll=0.07 & 1.1)
+groupczold	  km/s    	 Old fedshift of group center or vlg if n=1 
+		  		 group (old group finding, ll=0.14 & 0.75)
+groupdec          deg            Declination of group center or dec of galaxy
+		  		 if n=1 group  (current group finding, 
+				 ll=0.07 & 1.1)
+groupid				 Galaxy group id number (current group finding,
+				 ll=0.07 & 1.1)
+groupidold			 Old galaxy group id number (old group finding,
+				 ll=0.14 & 0.75)
+groupmass         Msun	 	 Group halo mass (current group finding, 
+				 ll=0.07 & 1.1)
+groupmassold      Msun	 	 Old group halo mass (old group finding, 
+				 ll=0.14 & 0.75)
+groupn			 	 Number of galaxies in the galaxy's group 
+				 (current group finding, ll=0.07 & 1.1)
+groupnassoc		 	 Number of galaxies in the galaxy's group 
+				 after re-association (current group finding, 
+				 ll=0.07 & 1.1)
+groupnold		 	 Old number of galaxies in the galaxy's group  
+				 (old group finding, ll=0.14 & 0.75)
+groupra            deg           RA of group center or RA of galaxy if n=1 
+				 group  (current group finding, ll=0.07 & 1.1)
+grpmass_dyn        Msun          dynamical mass <hat> A*grpsig^2/(G*Rproj) with constant A
+		                 determined by comparison to HAM masses (Eckert+2016b)
+grpmass_dyn_gap    Msun          dynamical mass <hat> A*grpsig_gap^2/(G*Rproj) with 
+		   		 constant A determined by comparison to HAM masses (Eckert+2016b)
+grpmass_dyn_smooth Msun		 dynamical mass A(grpsig_gap)*grpsig_gap^2/(G*Rproj) with
+		   		 A determined to match theoretical cumulative HMF and smoothly 
+				 transitioning from stacked to direct measurements as a 
+grprproj           Mpc           projected radius containing 75% of galaxies in group
+		   		 see Eckert+2016b, Robotham+2011 for details
+grprproj_smooth    Mpc           projected radius smoothly varying as a function of N
+		   		 between stacked and direct measurements
+grprproj_stack     Mpc           projected radius for stacked groups
+grpmass
+grpsig             km/s          velocity dispersion of group with normal rms equation
+grpsig_gap         km/s          velocity dispersion of group using Gapper method (Beers+1990)
+grpsig_smooth      km/s          smooth transition btw stacked and direct measurements
+                                 of velocity dispersion (using Gapper method)
+grpsig_stack       km/s          velocity dispersion measurements of groups from
+                                 stacking (see Eckert+2016b)
+h50	           mag		 2MASS H-band magnitude within the 50% 
+				 r-band light radius 
+h90	           mag		 2MASS H-band magnitude within the 90% 
+				 r-band light radius 
+herschel			 Flag indicating whether or not galaxy has 
+				 herschel coverage (from H-Atlas or helms); 
+				 the H-atlas fields are unusually shaped, so 
+				 this flag is only an estimate
+hiasym				 HI flux asymmetry, defined as log(f1/f2), 
+				 where f1 and f2 are the fluxes measured on either side of the systemic velocity
+hispecformat			 Code indicating format of HI spectrum file
+				    standardsrc = ALFALFA .src file
+				    vfcol = columns of velocity and flux density
+hispecpath			 Path to the HI spectrum being used   
+hivhel	 	   km/s		 Heliocentric velocity determined from the HI 
+		   		 profile.  Defined as the midpoint between the 
+				 50% levels on the left and right sides of 
+				 the HI profile
+hkcorr		   mag		 2MASS J-band K-correction new models
+hkcorrold	   mag		 2MASS J-band K-correction old models
+hkcorrred	   mag		 2MASS J-band K-correction "red" models
+hmag	           mag		 2MASS H-band magnitude (for stellar masses 
+				 don't use any fainter than 15)
+i50	           mag		 SDSS i-band magnitude within the 50% 
+				 r-band light radius
+i90	           mag		 SDSS i-band magnitude within the 90% 
+				 r-band light radius	
+ifuarea         arcsec^2         area covered by RESOLVE galaxy within 
+				 GEMINI IFU
+ifuarea2        arcsec^2         area covered by RESOLVE galaxy within 
+				 GEMINI IFU
+ifucheck	                 code saying how galaxy fits into IFU 
+				 (1 - larger than box size, 2 - within box, 
+				 3 & 4 - some combo of major minor axis 
+				 inside/not inside
+iufmag2            mag           magnitude of object within 3x5" Gemini box
+ifusb           mag/arcsec^2     surface brightness of RESOLVE galaxy within Gemini IFU 
+ifusb2          mag/arcsec^2     surface brightness of RESOLVE galaxy within Gemini IFU 
+ikcorr		   mag		 SDSS i-band K-correction new models
+ikcorrold	   mag		 SDSS i-band K-correction old models
+ikcorrred	   mag		 SDSS i-band K-correction "red" models
+imag		   mag		 SDSS i-band magnitude
+infall				 Flag indicating whether the galaxy is in the Fall footprint
+inobssample			 Flag indicating whether the galaxy is in the 
+				 RESOLVE sample for observations, 
+				 current as of 06/16/2015
+inobssampleold			 Flag indicating whether the galaxy is in the 
+				 RESOLVE sample for observations, prior to 
+				 04/17/2014 
+inobssampleoldb			 Flag indicating whether the galaxy is in the      	     	 	       	 RESOLVE sample for observations, current btw 
+				 04/17/2014-07/11/2104
+inobssampleoldc			 Flag indicating whether the galaxy is in the 
+				 RESOLVE sample for observations, 
+				 current btw 07/11/2014-04/08/2015
+inobssampleoldd			 Flag indicating whether the galaxy is in the 
+				 RESOLVE sample for observations, 
+				 current btw 04/08/2015-06/16/2015
+inspring			 Flag indicating whether the galaxy is in the 
+				 Spring footprint
+j50	           mag		 2MASS J-band magnitude within the 50% r-band 
+		   		 light radius 
+j90	           mag		 2MASS J-band magnitude within the 90% r-band 
+		   		 light radius 
+jkcorr		   mag		 2MASS H-band K-correction new models
+jkcorrold	   mag		 2MASS H-band K-correction old models
+jkcorrred	   mag		 2MASS H-band K-correction "red" models
+jmag	           mag		 2MASS J-band magnitude (for stellar masses 
+		   		 don't use any fainter than 16)
+k50	           mag		 2MASS K-band magnitude within the 50% r-band 
+		   		 light radius 
+k90	           mag		 2MASS K-band magnitude within the 90% r-band 
+		   		 light radius 
+kincz		   km/s		 kinematic redshift values
+kkcorr	  	   mag		 2MASS K-band K-correction new models
+kkcorrold	   mag		 2MASS K-band K-correction old models
+kmag	           mag		 2MASS K-band magnitude (for stellar masses don't use any fainter than 14.5)
+koalablue                        if 1 means observed by KOALA in blue setup
+koalabluedate                    date of blue observation with KOALA
+koalared			 if 1 means observed by KOALA in red setup
+kolareddate 			 date of red observation with KOALA
+koala_flag			 1 if KOALA emission line target, 2 if blue 
+				 E/S0, 3 if blue E/S0 that has been observed 
+				 by SOAR in high res setup
+limflagmhi  		         HI mass upper limit flag
+mbary              Msun          Baryonic mass (1.4HI+Mstars) as computed for
+		   		 Eckert+2 ("pseudoconvolution of stellar mass 
+				 and gas mass or log(G/S) likelihood 
+				 distributions to obtain full baryonic mass 
+				 distribution = we take median to be Mbary
+mbaryprelim        Msun	 	 Baryonic mass (1.4*HI+Mstars) - combination of 
+				 HI data + G/S predictions from 
+				 mhiphotourbafit, see bottom of file for when 
+				 to use the data vs. predictions 
+				 current as of 06/16/15
+mbaryprelimold     Msun	 	 Baryonic mass (1.4*HI+Mstars) - combination of
+				 HI data + G/S predictions from 
+				 mhiphotourdgrfit, see bottom of file for when 
+				 to use the data vs. predictions prior to 
+				 04/17/14
+mbaryprelimoldb    Msun	 	 Baryonic mass (1.4*HI+Mstars) - combination of
+				 HI data + G/S predictions from 
+				 mhiphotourdgrfit, see bottom of file for when 
+				 to use the data vs. predictions btw 
+				 04/17/14-07/11/14
+mbaryprelimoldc    Msun	 	 Baryonic mass (1.4*HI+Mstars) - combination 
+				 of HI data + G/S predictions from 
+				 mhiphotourdgrfit, see bottom of file for when 
+				 to use the data vs. predictions btw 
+				 07/11/14-04/08/15
+mbaryprelimoldd    Msun	 	 Baryonic mass (1.4*HI+Mstars) - combination 
+				 of HI data + G/S predictions from 
+				 mhiphotourdgrfit, see bottom of file for when 
+				 to use the data vs. predictions btw  
+				 04/08/15-6/16/15
+medfsmgr	   (1/Gyr)       median stellar mass produced over last Gyr 
+		   		 divided by pre-extisting stellar mass from 
+				 new model set
+medfsmgrred	   (1/Gyr)       median stellar mass produced over last Gyr 
+		   		 divided by pre-extisting stellar mass from 
+				 "red" model set
+mgas                 Msun        1.4*MHI with best combination of measurements 
+                                 and estimates (calculated in gasalgorithm.pro)
+mhi	             Msun	 HI mass (no correction for Helium)
+mhicorr	             Msun	 de-confused HI mass (no correction for Helium)
+######removed MHI estimates for space 
+######now have better combo of MHI measured and estimated in mgas
+#mhiphotogjbafit      Msun	 HI mass estimated from smoothrestmag g-j + ba
+#		     		 (no correction for Helium)
+#mhiphotogjbafitsig   dex	 sigma of G_S relation from smoothrestmag 
+#		     		 g-j + ba
+#mhiphotogjfit        Msun	 HI mass estimated from smoothrestmag g-j 
+#		     		 (no correction for Helium)
+#mhiphotogjfitsig     dex	 sigma of G_S relation from smoothrestmag g-j
+#mhiphotogkbafit      Msun	 HI mass estimated from smoothrestmag 
+#		     		 g-k + ba (no correction for Helium)
+#mhiphotogkbafitsig  dex	 	 sigma of G_S relation from smoothrestmag 
+#		    		 g-k + ba
+#mhiphotogkfit      Msun	 	 HI mass estimated from smoothrestmag g-k 
+#		   		 (no correction for Helium)
+#mhiphotogkfitsig   dex	 	 sigma of G_S relation from smoothrestmag g-k
+#mhiphotogrbafit    Msun	 	 HI mass estimated from smoothrestmag 
+#		     		 g-r + ba (no correction for Helium)
+#mhiphotogrbafitsig dex	 	 sigma of G_S relation from smoothrestmag 
+#		     		 g-r + ba
+#mhiphotogrfit      Msun	 	 HI mass estimated from smoothrestmag g-r 
+#		     		 (no correction for Helium)
+#mhiphotogrfitsig   dex	 	 sigma of G_S relation from smoothrestmag g-r 
+#mhiphotoujbafit    Msun	 	 HI mass estimated from smoothrestmag u-j +ba 
+#		     		 (no correction for Helium)
+#mhiphotoujbafitsig dex	 	 sigma of G_S relation from smoothrestmag 
+#		     		 u-j + ba
+#mhiphotoujfit      Msun	 	 HI mass estimated from smoothrestmag u-j 
+#		     		 (no correction for Helium)
+#mhiphotoujfitsig   dex	 	 sigma of G_S relation from smoothrestmag u-j
+#mhiphotoukbafit    Msun	  	 HI mass estimated from smoothrestmag u-k + ba 
+#		     		 (no correction for Helium)
+#mhiphotoukbafitsig  dex	 	 sigma of G_S relation from smoothrestmag 
+#		    		 u-k + ba
+#mhiphotoukfit      Msun	 	 HI mass estimated from smoothrestmag u-k (
+#		   		 no correction for Helium)
+#mhiphotoukfitsig   dex	 	 sigma of G_S relation from smoothrestmag u-k
+#mhiphotourbafit    Msun	 	 HI mass estimated from smoothrestmag u-r + ba (no correction for Helium) 
+#mhiphotourbafitsig dex	         sigma of G_S relation from smoothrestmagold 
+#		     		 u-r + ba
+#mhiphotourfit     Msun	 	 HI mass estimated from smoothrestmag u-r 
+#		     		 (no correction for Helium) 
+#mhiphotourfitsig  dex         sigma of G_S relation from smoothrestmag u-r 
+modelfsmgr      (1/Gyr)          mean stellar mass produced over last Gyr 
+		  		 divided by pre-extisting stellar mass from 
+				 new model set
+modelfsmgrred   (1/Gyr)     	 mean stellar mass produced over last Gyr 
+		  		 divided by pre-extisting stellar mass from 
+				 "red" model set
+morph	    		 	 Morphological type
+morphel	    		 	 String flag E or L for quantitative 
+				 Morphological type (from Amanda's ECO paper)
+mstars	        Msun	 	 Stellar mass new models
+mstarsh	        Msun	 	 Stellar mass + upper error bar new models
+mstarshold      Msun	 	 Stellar mass + upper error bar old models
+mstarsl	        Msun	 	 Stellar mass - lower error bar new models
+mstarslold      Msun	 	 Stellar mass - lower error bar old models
+mstarsold       Msun	 	 Stellar mass old models
+mstarsred	Msun	 	 Stellar mass "red" models
+mstarsredh	Msun	 	 Stellar mass + upper error bar "red" models
+mstarsredl	Msun	 	 Stellar mass + lower error bar "red" models
+mucg50          mag/arcsec^2     SDSS g-band surface brightness within the 
+				 50% g band light radius ("intrinsic" SB)
+mucg90          mag/arcsec^2     SDSS g-band surface brightness within the 
+				 90% g band light radius ("intrinsic" SB)
+muci50          mag/arcsec^2     SDSS i-band surface brightness within the 
+				 50% i band light radius ("intrinsic" SB)
+muci90          mag/arcsec^2     SDSS i-band surface brightness within the 
+				 90% i band light radius ("intrinsic" SB)
+mucr50          mag/arcsec^2     SDSS r-band surface brightness within the 
+				 50% r band light radius ("intrinsic" SB)
+mucr90          mag/arcsec^2     SDSS r-band surface brightness within the 
+				 90% r band light radius ("intrinsic" SB)
+mug50           mag/arcsec^2     SDSS g-band surface brightness within the 
+				 50% g band light radius (observed SB)
+mug90           mag/arcsec^2     SDSS g-band surface brightness within the 
+				 90% g band light radius (observed SB)
+mui50           mag/arcsec^2     SDSS i-band surface brightness within the 
+				 50% i band light radius (observed SB)
+mui90           mag/arcsec^2     SDSS i-band surface brightness within the 
+				 90% i band light radius (observed SB)
+mur50           mag/arcsec^2     SDSS r-band surface brightness within the 
+				 50% r band light radius (observed SB)
+mur90           mag/arcsec^2     SDSS r-band surface brightness within the 
+				 90% r band light radius (observed SB)
+murat1p3re      mag/arcsec^2     SDSS r-band surface brightness at 1.3 Re
+mur_radr23p75   mag/arcsec^2     SDSS r-band surface brightness within the 
+				 radius defined by the 23.75 isophote
+mu_delta      log(Msun/kpc^2)	 stellar surface mass density within r_e minus
+	      			 stellar surface mass density between 
+				 r_e and r90 (see Kannappan et al. 2013)
+n10		Mpc^-3		 10th nearest neighbor density 
+				 (no finger-of-god corrections) from J. Florez
+n10_corr	Mpc^-3		 10th nearest neighbor density 
+				 (finger-of-god corrected) from J. Florez
+n3		Mpc^-3		 3rd nearest neighbor density 
+				 (no finger-of-god corrections) from J. Florez
+n3_corr		Mpc^-3		 3rd nearest neighbor density 	  
+				 (finger-of-god corrected) from J. Florez
+n4		Mpc^-3		 4th nearest neighbor density 
+				 (no finger-of-god corrections) from J. Florez
+n4_corr		Mpc^-3		 4th nearest neighbor density 
+				 (finger-of-god corrected) from J. Florez
+n5		Mpc^-3		 5th nearest neighbor density 
+				 (no finger-of-god corrections) from J. Florez
+n5_corr		Mpc^-3		 5th nearest neighbor density 
+				 (finger-of-god corrected) from J. Florez
+name				 RESOLVE designation
+nearest2d	Mpc		 A 4 x N array (N = # of galaxies in catalog) 
+				 providing distances to 4 nearest projected 
+				 neighbors within cz = 500 km/s of main object.
+				 Note this only checks for neighbors within 
+				 the RESOLVE catalog
+				 E.g., to find the distance to the 
+				 closest object:
+				   	 >>IDL> sel=where(name eq 'rs0160')
+					 >>IDL> print,nearest2d[1,sel]     
+					 >>     0.119000
+			         To find the distance to the 2nd closest object:
+					 >>IDL> print,nearest2d[0,sel]
+					 >>         0.0399650				   
+nearest2dind			 A 4 x N array (N = # of galaxies in catalog)
+				 providing the index in the resolve catalog 
+				 corresponding to the 4 nearest objects
+				 E.g., to find the index of the galaxy that is 
+				 the closest to our object of interest:
+				    	 >>IDL> sel=where(name eq 'rs0160')
+					 >>IDL> print,nearest2dind[0,sel]  
+					 >>      168.000
+					 >>IDL> print,nearest2dind[1,sel]
+			                 >>      167.000
+nearest3d	 Mpc		 A 4 x N array (N = # of galaxies in the 
+		 		 catalog) provides distances to 4 nearest 
+				 neighbors in 3-d within cz = 500 km/s of 
+				 main object.  Note this only checks for 
+				 neighbors within the RESOLVE catalog.  
+				 Usage is the same as "nearest2d"	
+nearest3dind			 Provides the index in the resolve catalog 
+				 corresponding to the nearest object found.  
+				 Usage is the same as "nearest2dind" all nll
+nuv50	         mag		 Galex NUV-band magnitude within the 50% r-band 
+nuv90	         mag		 Galex NUV-band magnitude within the 90% 
+		 		 r-band light radius
+nuvkcorr         mag		 Galex NUV-band K-correction new models
+nuvkcorrold      mag		 Galex NUV-band K-correction old models
+nuvkcorrred      mag		 Galex NUV-band K-correction "red" models
+nuvmag	         mag		 Galex NUV-band magnitude
+nvor		 Mpc^-3		 voronoi density, no correction for 
+		 		 finger-of-god distortions
+nvor_corr	 Mpc^-3          voronoi density corrected for finger-of-god 
+		 		 distortions
+obstag          string           ABCD obstag for observing preparation
+**all oll below refer to original linking length form Andreas's 2006 paper with newer volumes and galaxies (0.14, 0.75)**
+ollresgroupcentral               1/0 flag 1 if galaxy group central (brightest
+				 in r mag) (using ll=0.14 & 0.75)
+ollresgroupcentralout            1/0 flag 1 if galaxy group central (brightest
+				 in r mag)  if galaxy outside RESOLVE limits 
+				 (current group finding, ll=0.14 & 0.75)
+ollresgroupcz    km/s            group center in redshift (using ll=1.14 & 0.75)
+ollresgroupdec    deg            group center in dec (using ll=0.14 & 0.75)
+ollresgroupid                    group id (using ll=0.14 & 0.75)
+ollresgroupmass   Msun           group mass (in Msun units)using ll=0.14 & 0.75)
+ollresgroupn                     group n (using 0.14 & 0.75)
+ollresgroupnreassoc              group n after galaxy re-association (
+				 using ll=0.14 & 0.7)
+ollresgroupra     deg            group center in ra (using ll=0.14 & 0.7)
+ollresgroupreassocflag           1/0 flag for reassociated galaxies (galaxies
+				 below MR cutoff using ll=0.14 & 0.75)
+ollresgrouprproj  Mpc            group projected radius (using ll=0.14 & 0.75)
+ollresgrouprvir   Mpc            group virial radius (using ll=0.14 & 0.75)
+origdr7absrmag    mag            absolute Petrosian rband mag 
+		  		 (foreground extinction included)
+origdr7flag       int            1/0 flag showing whether part of original DR7
+		  		 redshift survey
+origdr7rmag       mag            apparent Petrosian rband mag 
+				 (foreground extinction included)
+pa              degrees          pa (in N through E) of outer LSB disk
+painnerdisk     degrees          pa (in N through E) at r=24.5 sb
+paphotforkin    degrees          pa (in N through E) of higher SB disk
+pecflag			 	 Flag indicating a galaxy is peculiar
+petromag_r        mag            r band dr8 petrosian magnitudes
+r50	          mag		 SDSS r-band magnitude within the 50% r-band light radius
+r90	          mag		 SDSS r-band magnitude within the 90% r-band light radius	
+ra	        degrees	 	 Right Ascension
+radflagg     #                	 flag for 90,75,50% radii - if 0, radii okay
+radflagr     #               	 flag for 90,75,50% radii - if 0, radii okay
+radg24p5     	 arcsec          radius of 24.5 surface brightness in g
+radg50p          arcsec          radius of 50% of light in g
+radg75p      	 arcsec          radius of 75% of light in g
+radg90p      	 arcsec          radius of 90% of light in g
+radh50p	     	 arcsec	      	 radius of 50% of light in H
+radh90p	     	 arcsec	      	 radius of 90% of light in H
+radj50p	     	 arcsec	      	 radius of 50% of light in J
+radj90p	         arcsec	      	 radius of 90% of light in J
+radk50p	     	 arcsec	      	 radius of 50% of light in K
+radk90p	     	 arcsec	      	 radius of 90% of light in K
+radr23	     	 arcsec	         radius of 24.5 surface brightness in r   
+radr24p5         arcsec          radius of 24.5 surface brightness in r
+radr50p      	 arcsec          radius of 50% of light in r
+radr75p      	 arcsec          radius of 75% of light in r
+radr90p      	 arcsec          radius of 90% of light in r
+rady50p	     	 arcsec	      	 radius of 50% of light in Y
+rady90p	     	 arcsec	      	 radius of 90% of light in Y
+rainimcent       degrees    	 Right Ascension from Katie's phot
+rcext	     		      	 rotation curve extent (? assume in arcsec)
+red                              Index indicating observed in red setup
+reddate 			 String with red observation dates
+redfrontend			 String with red frontends used for each date
+red note			 String with note from red observation 
+ring				 String indicating whether the galaxy has a ring
+rkcorr		  mag		 SDSS r-band K-correction new models
+rkcorrold	  mag		 SDSS r-band K-correction old models
+rkcorrred	  mag		 SDSS r-band K-correction "red" models
+rmag	          mag		 SDSS r-band magnitude
+rms		  Jy		 Noise in 21cm spectrum
+rproj	          Mpc		 group-finding code estimated group projected 
+		  		 radius (new group finding, ll=0.07 & 1.1) 
+rprojold	  Mpc		 group-finding code estimated group projected
+				 radius (old group finding, ll=0.14 & 0.75) 
+rvir	          Mpc		 Halo virial radius 
+		  		 (current group finding, ll=0.07 & 1.1)
+rvirold	          Mpc		 Old Halo virial radius 
+		  		 (old group finding, ll=0.14 & 0.75) 
+saltfp                           Index if Gal observed with F-P on SALT
+saltfpdate                       String of dates of SALT FP observations
+saltls                           Index if Gal observed with LS on SALT
+saltlsdate                       Sring of dates of SALT LS observations
+sfrnuvmadau98     Msun/yr        calibration from Madau et al. 1998 as reported
+		  		 by Kennicutt et al. 1998 with caveat that for 
+				 1600-2800AA (and NUV ranges from 2000-2600 AA),
+				 1.4e-28*Lnuv
+sfrnuvwilkins12   Msun/yr        calibration from Wilkins et al. 2012 for the 
+		  		 NUV GALEX band. Find range of coefficients 
+				 using different IMFs/stell pops from 0.91e-28 
+				 to 1.06e-28*Lnuv, I use 0.91e-28
+sfr_nuv_22um	  Msun/yr	 Star formation rate using NUV+WISE 22 micron 
+		  		 (from Jarrett et al. 2013)
+sfr_nuv_12um	  Msun/yr	 Star formation rate using NUV+WISE 12 micron 
+		  		 (from Jarrett et al. 2013)
+sigmablue          km/s          sigma measurement from ppxf on blue data 
+		   		 (-999 for no measurement)
+sigmabr            km/s          sigma measurement from ppxf on broad data 
+		   		 (-999 if data exist and sigma < 150 km/s)
+sigmasource                      source of blue sigma (SOAR, SALT, Gemini)
+sini	    		         sin of inclination angle
+smoothrestgmag	    mag		 SDSS g-band magnitude derived from stellar 
+		   		 mass fit new models	 
+smoothrestgmagold   mag		 SDSS g-band magnitude derived from stellar 
+		   		 mass fit old models	 
+smoothresthmag	    mag		 2MASS H-band magnitude derived from stellar 
+		   		 mass fit new models	  
+smoothresthmagold   mag		 2MASS H-band magnitude derived from stellar 
+		   		 mass fit old models	  
+smoothrestimag	    mag		 SDSS i-band magnitude derived from stellar
+		   		 mass fit new models	 	 
+smoothrestimagold   mag		 SDSS i-band magnitude derived from stellar
+		   		 mass fit old models	  
+smoothrestjmag	    mag		 2MASS J-band magnitude derived from stellar 
+		    		 mass fit new models	 	 
+smoothrestjmagold   mag		 2MASS J-band magnitude derived from stellar 
+		    		 mass fit old models	 
+smoothrestkmag	    mag		 2MASS K-band magnitude derived from stellar 
+		    		 mass fit new models	 	 
+smoothrestkmagold   mag		 2MASS K-band magnitude derived from stellar 
+		    		 mass fit old models	 
+smoothrestnuvmag    mag          GALEX NUV-band magnitude derived from stellar
+		    		 mass fit new models	 	 
+smoothrestnuvmagold mag          GALEX NUV-band magnitude derived from stellar 
+		     		 mass fit old models	 	 
+smoothrestredgmag   mag		 SDSS g-band magnitude derived from stellar
+		    		 mass fit "red" models	 
+smoothrestredhmag   mag		 2MASS h-band magnitude derived from stellar
+		    		 mass fit "red" models	 
+smoothrestredimag   mag		 SDSS i-band magnitude derived from stellar
+		    		 mass fit "red" models	 
+smoothrestredjmag   mag		 2MASS J-band magnitude derived from stellar
+		    		 mass fit "red" models	 
+smoothrestredkmag   mag		 2MASS K-band magnitude derived from stellar 
+		    		 mass fit "red" models	 
+smoothrestrednuvmag mag		 GALEX NUV-band magnitude derived from stellar
+		      		 mass fit "red" models	 
+smoothrestredrmag   mag		 SDSS r-band magnitude derived from stellar    
+		    		 mass fit "red" models	 
+smoothrestredhmag   mag		 2MASS J-band magnitude derived from stellar
+		    		 mass fit "red" models	 
+smoothrestredukmag  mag		 UKDISS K-band magnitude derived from stellar
+		     		 mass fit "red" models	 
+smoothrestredumag   mag		 SDSS u-band magnitude derived from stellar
+		    		 mass fit "red" models	 
+smoothrestreduvotm2mag   mag	 Swift uvm2-band magnitude derived from 
+			 	 stellar mass fit "red" models	 
+smoothrestreduymag  mag	 	 UKIDSS Y-band magnitude derived from stellar
+		     		 mass fit "red" models	 
+smoothrestredzmag   mag		 SDSS z-band magnitude derived from stellar 
+		    		 mass fit "red" models	 
+smoothrestrmag	    mag		 SDSS r-band magnitude derived from stellar
+		    		 mass fit new models	 
+smoothrestrmagold   mag		 SDSS r-band magnitude derived from stellar 
+		    		 mass fit old models	 
+smoothrestuhmag	    mag		 UKIDSS H-band magnitude derived from stellar mass fit	  new models	 (should be same as 2MASS)
+smoothrestukmag	    mag		 UKIDSS K-band magnitude derived from stellar mass fit	  new models     (should be same as 2MASS)
+smoothrestumag	    mag		 SDSS u-band magnitude derived from stellar
+		   		 mass fit	  new models	 
+smoothrestumagold   mag		 SDSS u-band magnitude derived from stellar 
+		   		 mass fit old models	 
+smoothrestuvotm2mag mag		 Swift uvotm2-band magnitude derived from 
+		      		 stellar mass fit new models	 
+smoothrestuymag	    mag		 UKIDSS Y-band magnitude derived from stellar
+		   		 mass fit new models
+smoothrestzmag	    mag		 SDSS z-band magnitude derived from stellar 
+		   		 mass fit new models	 
+smoothrestzmagold   mag		 SDSS z-band magnitude derived from stellar 
+		   		 mass fit old models	 
+tel	    		 	 Source of HI observation 
+				   AO = Arecibo
+				   GBT = Green Bank Telescope
+				   ALFALFA = ALFALFA Survey
+				   S05-GB300 = Green Bank 300 ft from Springob et al. 2005
+				   S05-AO = Arecibo observation from Springob et al. 2005
+					TBD = no 21cm observation
+u50	        mag		 SDSS u-band magnitude within the 50% 
+				 r-band light radius
+u90	        mag		 SDSS u-band magnitude within the 90% 
+				 r-band light radius
+uh50	        mag		 UKIDSS H-band magnitude within the 50% 
+				 r-band light radius
+uh90	        mag		 UKIDSS H-band magnitude within the 90% 
+				 r-band light radius
+uhkcorr		mag		 UKIDSS H-band K-correction new models	
+uhkcorrred	mag		 UKIDSS H-band K-correction "red" models
+uk50	        mag		 UKIDSS K-band magnitude within the 50% 
+				 r-band light radius
+uk90	        mag		 UKIDSS K-band magnitude within the 90% 
+				 r-band light radius
+ukcorr		mag		 SDSS u-band K-correction new models		
+ukcorrold	mag		 SDSS u-band K-correction old models	 
+ukcorrred	mag		 SDSS u-band K-correction "red" models	 
+ukidsshflag                      1/0 flag if UKIDSS H band flagged by eye 
+				 as bad (1 is bad)
+ukidsshmag      mag              UKIDSS H mag 
+ukidsskflag                      1/0 flag if UKIDSS K band flagged by eye 
+				 as bad (1 is bad)
+ukidsskmag      mag              UKIDSS K mag 
+ukidssyflag                      1/0 flag if UKIDSS Y band flagged by eye 
+				 as bad (1 is bad)
+ukidssymag      mag              UKIDSS Y mag 
+ukkcorr		mag		 UKIDSS K-band K-correction new models		
+ukkcorrred	mag		 UKIDSS K-band K-correction "red" model
+umag	        mag		 SDSS u-band magnitude
+uncflag			 	 Flag indicating the morphology is uncertain	
+				 (too edge-on or too small)
+uvotm2mag        mag		 Swift uvotm2-band magnitude
+uy50	        mag		 UKIDSS Y-band magnitude within the 50% 
+				 r-band light radius
+uy90	        mag		 UKIDSS Y-band magnitude within the 90% 
+				 r-band light radius
+uykcorr		mag		 UKIDSS Y-band K-correction new models	
+uykcorrred	mag		 UKIDSS Y-band K-correction "red" models
+vhel		km/s		 Heliocentric recession velocity
+vlg	        km/s	         Local Group corrected recession velocity
+vpmm            km/s             Probable min-max velocity difference
+vpmmsource                       telescope source for VPMM (SOAR or SALT)
+w1mpro		mag		 WISE catalog W1 magnitude from profile fit
+w1sigmpro	mag		 Error on w1mpro
+w1snr				 W1 signal-to-noise ratio
+w2mpro		mag		 WISE catalog W2 magnitude from profile fit
+w2sigmpro	mag		 Error on w2mpro
+w2snr				 W2 signal-to-noise ratio
+w3mpro		mag		 WISE catalog W3 magnitude from profile fit
+w3sigmpro	mag		 Error on w3mpro
+w3snr				 W3 signal-to-noise ratio
+w4mpro		mag		 WISE catalog W4 magnitude from profile fit
+w4sigmpro	mag		 Error on w4mpro
+w4snr				 W4 signal-to-noise ratio
+w50	        km/s	 	 HI profile width at 50% maximum
+wallid                           1/0 flag id'd in wall by Dave
+whynotgoodresolve 		 String flag to indicate why a galaxy is 
+				 goodresolve=0
+z50	        mag		 SDSS z-band magnitude within the 50% r-band 
+				 light radius
+z90	        mag		 SDSS z-band magnitude within the 90% r-band 
+				 light radius	
+zkcorr		mag		 SDSS z-band K-correction new models
+zkcorrold	mag		 SDSS z-band K-correction old models
+zkcorrred 	mag		 SDSS z-band K-correction "red" models
+zmag	        mag		 SDSS z-band magnitude
+zn2broad	12+log(O/H)	 SOAR metallicity central 1" N2 Pettini 04
+zn2broaderr	dex		 SOAR N2 metallicity error
+zn2red		12+log(O/H)	Red/SALT metallicity central 1" N2 Pettini 04
+zn2rederr	dex		Red/SALT N2 metallicity error
+zn2sdss		12+log(O/H)	 SDSS metallicity central 3" N2 Pettini 04
+zn2sdsserr	dex		 SDSS N2 metallicity error
+zo3n2broad	12+log(O/H)	 SOAR broad metallicity central 3" O3N2 
+				 Pettini 04
+zo3n2broaderr	dex		 SOAR O3N2 metallicity error
+zo3n2sdss	12+log(O/H)	 SDSS metallicity central 3" O3N2 Pettini 04
+zo3n2sdsserr	dex		 SDSS O3N2 metallicity error
+
+
+
+;;;;;;;;explanation of Mbary calculation
+
+;okay HI detections - use data
+sel=where(mhi gt 0.0 and (1-limflagmhi) and (1-confused))
+mbary[sel]=mstars[sel]+mgas[sel]
+
+;confused HI detections - use prediction
+sel=where(mhi gt 0.0 and (1-limflagmhi) and confused)
+mbary[sel]=mstars[sel]+mgaspredict[sel]
+
+;weak HI limit - use prediction
+sel=where(mgas/mstars gt 0.05 and (1-confused) and limflagmhi)
+mbary[sel]=mstars[sel]+mgaspredict[sel]
+
+;strong HI limit -use limit
+sel=where(mgas/mstars le 0.05 and (1-confused) and limflagmhi)
+mbary[sel]=mstars[sel]+mgas[sel]
+
+;no HI - use prediction
+sel=where(mhi eq 0.0)
+mbary[sel]=mstars[sel]+mgaspredict[sel]
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;Note: Flyby IDs;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+Flybys are defined as:
+1) gas poor (G/S < 0.1)
+2) in their own halo (not satellites)
+3) within 1.5*Rvir of the nearest Mh>10^12 halo
+
+By this definition, no Mh>10^12 halos will be classified as flybys.
+In cases where there was a weak upper limit, I used the current
+estimate of the total baryonic mass as the estimate of the gas mass. 
+
+Flybys designations are based on the r-band luminosity defined groups
+(designations using alternate groups can be added).
+
