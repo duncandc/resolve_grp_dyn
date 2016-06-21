@@ -7,7 +7,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import numpy as np
 from scipy.sparse import csgraph, csr_matrix, coo_matrix
 
-from pair_counter import pairwise_distance_rp_pi
+from .pair_counter import pairwise_distance_rp_pi
 
 from halotools.custom_exceptions import HalotoolsError
 

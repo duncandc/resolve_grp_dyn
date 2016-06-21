@@ -5,7 +5,7 @@ Find groups on RESOLVE
 from __future__ import ( division, print_function, absolute_import, unicode_literals)
 import numpy as np
 from astropy.table import Table
-from group_finder import FoFGroups
+from resolve_grp_dyn.group_finder import FoFGroups
 import sys
 import matplotlib.pyplot as plt
 

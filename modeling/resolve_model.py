@@ -80,7 +80,7 @@ def main():
     
     #find groups
     start = time.time()
-    from group_finder import FoFGroups
+    from resolve_grp_dyn.group_finder import FoFGroups
     coords = np.vstack((resolve_mock['observed_x'],
                         resolve_mock['observed_y'],
                         resolve_mock['observed_z'])).T
