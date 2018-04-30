@@ -1,7 +1,7 @@
-#FoF Group Finder
+# FoF Group Finder
 
-This is a python module to preform FoF group finding on data in in observational coordinatesL ra,dec,redshift.
+This is a Python module to perform FoF group finding on data in observational coordinates: ra,dec,redshift.
 
-a cython module must be compiled to use the code.  to do this, move to the pair_counter directory and run build_module.sh
+A cython module must be compiled to use the code. To do this, move to the pair_counter directory and run build_module.sh
 
-Author: Duncan cCmpbell
+Author: Duncan Campbell
