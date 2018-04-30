@@ -15,7 +15,7 @@ __all__ = ['SMHM', 'BMHM']
 
 
 class SMHM(PrimGalpropModel):
-    """ 
+    """
     stellar-to-halo-mass relation model based on Behroozi's SMHM model
     """
 
@@ -69,13 +69,13 @@ class SMHM(PrimGalpropModel):
             contains a key that already appears in the ``new_haloprop_func_dict`` bound to
             ``model``, and exception will be raised.
         """
-        
+
         self.littleh = 0.7
-        
+
         super(SMHM, self).__init__(galprop_name='stellar_mass', **kwargs)
-        
+
         self._methods_to_inherit.extend(['mean_log_halo_mass'])
-        
+
     def retrieve_default_param_dict(self):
         """ Method returns a dictionary of all model parameters
         set to the column 2 values in Table 2 of Behroozi et al. (2010).
@@ -91,14 +91,13 @@ class SMHM(PrimGalpropModel):
         # mean_stellar_mass methods use accept and return arguments in h=1 units.
 
         d = {
-        'smhm_m0_0': 10.72,
-        'smhm_m1_0': 12.35,
-        'smhm_beta_0': 0.43,
-        'smhm_delta_0': 0.56,
-        'smhm_gamma_0': 1.54}
+            'smhm_m0_0': 10.72,
+            'smhm_m1_0': 12.35,
+            'smhm_beta_0': 0.43,
+            'smhm_delta_0': 0.56,
+            'smhm_gamma_0': 1.54}
 
         return d
-
 
     def mean_log_halo_mass(self, log_stellar_mass, **kwargs):
         """ Return the halo mass of a central galaxy as a function
@@ -139,7 +138,6 @@ class SMHM(PrimGalpropModel):
 
         return np.log10((10.**log_halo_mass)/self.littleh)
 
-
     def mean_stellar_mass(self, **kwargs):
         """ Return the stellar mass of a central galaxy as a function
         of the input table.
@@ -174,7 +172,7 @@ class SMHM(PrimGalpropModel):
             halo_mass = kwargs['prim_haloprop']
         else:
             raise KeyError("Must pass one of the following keyword arguments to mean_occupation:\n"
-                "``table`` or ``prim_haloprop``")
+                           "``table`` or ``prim_haloprop``")
 
         log_stellar_mass_table = np.linspace(8.5, 12.5, 100)
         log_halo_mass_table = self.mean_log_halo_mass(log_stellar_mass_table, redshift=redshift)
@@ -189,7 +187,7 @@ class SMHM(PrimGalpropModel):
 
 
 class BMHM(PrimGalpropModel):
-    """ 
+    """
     baryonic-to-halo-mass relation model based on Behroozi's SMHM model
     """
 
@@ -243,13 +241,13 @@ class BMHM(PrimGalpropModel):
             contains a key that already appears in the ``new_haloprop_func_dict`` bound to
             ``model``, and exception will be raised.
         """
-        
+
         self.littleh = 0.7
-        
+
         super(BMHM, self).__init__(galprop_name='baryonic_mass', **kwargs)
-        
+
         self._methods_to_inherit.extend(['mean_log_halo_mass'])
-        
+
     def retrieve_default_param_dict(self):
         """ Method returns a dictionary of all model parameters
         set to the column 2 values in Table 2 of Behroozi et al. (2010).
@@ -265,14 +263,13 @@ class BMHM(PrimGalpropModel):
         # mean_stellar_mass methods use accept and return arguments in h=1 units.
 
         d = {
-        'smhm_m0_0': 10.72,
-        'smhm_m1_0': 12.35,
-        'smhm_beta_0': 0.43,
-        'smhm_delta_0': 0.56,
-        'smhm_gamma_0': 1.54}
+             'smhm_m0_0': 10.72,
+             'smhm_m1_0': 12.35,
+             'smhm_beta_0': 0.43,
+             'smhm_delta_0': 0.56,
+             'smhm_gamma_0': 1.54}
 
         return d
-
 
     def mean_log_halo_mass(self, log_stellar_mass, **kwargs):
         """ Return the halo mass of a central galaxy as a function
@@ -313,7 +310,6 @@ class BMHM(PrimGalpropModel):
 
         return np.log10((10.**log_halo_mass)/self.littleh)
 
-
     def mean_baryonic_mass(self, **kwargs):
         """ Return the baryonic mass of a central galaxy as a function
         of the input table.
@@ -348,7 +344,7 @@ class BMHM(PrimGalpropModel):
             halo_mass = kwargs['prim_haloprop']
         else:
             raise KeyError("Must pass one of the following keyword arguments to mean_occupation:\n"
-                "``table`` or ``prim_haloprop``")
+                           "``table`` or ``prim_haloprop``")
 
         log_stellar_mass_table = np.linspace(8.5, 12.5, 100)
         log_halo_mass_table = self.mean_log_halo_mass(log_stellar_mass_table, redshift=redshift)
